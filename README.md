@@ -11,16 +11,21 @@ A bit like https://curl.io
 
 Upload a file.
 
-    $ curl -F "file=@my.file" http://localhost:5000/my.file.with.unique.name
+    $ curl -T my.file localhost:5000/my.file.with.unique.name
+
+Secure upload.
+
+    $ gpg -c my.file && \
+      curl -T my.file.gpg \
+      localhost:5000/my.file.with.unique.name
 
 Download a file.
 
-    $ curl -O http://localhost:5000/my.file.with.unique.name
+    $ curl -O localhost:5000/my.file.with.unique.name
 
 ## Running the Image
 
     $ docker run -d \
       -p 5000:5000 \
-      -v /home/ubuntu:/data/files \
       --restart=always \
       johndstein/curlme

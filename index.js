@@ -3,7 +3,6 @@
 var http = require('http');
 var path = require('path');
 var fs = require('fs');
-var Busboy = require('busboy');
 var port = 5000;
 
 if (process.argv[2]) {
@@ -33,27 +32,19 @@ function serveFile(filepath, res) {
 
 function saveFile(filepath, req, res) {
   console.log('saveFile', filepath);
-  var busboy = new Busboy({
-    headers: req.headers
-  });
   var ws = fs.createWriteStream(filepath);
-  busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
-    file.on('data', function(data) {
-      ws.write(data);
-    });
-    file.on('end', function() {
-      ws.end();
-    });
+  req.on('data', function(data) {
+    ws.write(data);
   });
-  busboy.on('finish', function() {
+  req.on('end', function() {
+    ws.end();
     res.end();
   });
-  req.pipe(busboy);
 }
 
 var server = http.createServer(function(req, res) {
   var filepath = './files' + req.url;
-  if (req.method === 'POST') {
+  if (req.method === 'PUT') {
     saveFile(filepath, req, res);
   } else {
     serveFile(filepath, res);
