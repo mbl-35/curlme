@@ -18,5 +18,8 @@ Download a file.
 
 ## Running the Image
 
-    $ docker run -d -p 5000:5000 -v /host/folder:/data/files johndstein/curlme
-
+    $ docker run -d \
+      -p 5000:5000 \
+      -v /host/folder:/data/files \
+      --restart=always \
+      johndstein/curlme
