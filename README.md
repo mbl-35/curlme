@@ -5,6 +5,7 @@ Dockerfile of johndstein/curlme published to the public
 
 Quickie file server. Stores files in ```/data/files``` on image.
 Deletes files immediately on download.
+A bit like https://curl.io
 
 ## Usage
 
