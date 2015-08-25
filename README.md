@@ -3,9 +3,9 @@
 Dockerfile of johndstein/curlme published to the public
 [Docker Registry](https://registry.hub.docker.com/u/johndstein/curlme/).
 
-Quickie file server. Stores files in ```/data/files``` on image.
-Deletes files immediately on download.
+Quickie file server.
 A bit like https://curl.io
+Deletes files immediately on download.
 
 ## Usage
 
