@@ -11,11 +11,17 @@ A bit like https://curl.io
 
 Upload a file.
 
-    $ curl -F "file=@my.file" http://localhost:5000/my.file.with.unique.name
+    $ curl -F "file=@my.file" localhost:5000/my.file.with.unique.name
+
+Secure upload.
+
+    $ gpg -c my.file && \
+      curl -F "file=@my.file.gpg" \
+      localhost:5000/my.file.with.unique.name
 
 Download a file.
 
-    $ curl -O http://localhost:5000/my.file.with.unique.name
+    $ curl -O localhost:5000/my.file.with.unique.name
 
 ## Running the Image
 
