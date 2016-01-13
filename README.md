@@ -31,5 +31,3 @@ Download a file.
       -p 5000:5000 \
       --restart=always \
       johndstein/curlme
-
-
