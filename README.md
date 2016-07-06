@@ -31,3 +31,8 @@ Download a file.
       -p 5000:5000 \
       --restart=always \
       johndstein/curlme
+
+## Windoze
+
+If you are unfortunate enought to be on a Windoze box, you can download 
+curl here: http://www.paehl.com/open_source/?CURL_7.49.1
