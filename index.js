@@ -32,6 +32,7 @@ function serveFile(filepath, res) {
 
 function saveFile(filepath, req, res) {
   console.log('saveFile', filepath);
+  fs.mkdirSync(path.dirname(filepath), { recursive: true });
   var ws = fs.createWriteStream(filepath);
   req.on('data', function(data) {
     ws.write(data);
