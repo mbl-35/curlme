@@ -23,9 +23,9 @@ function serveFile(filepath, res) {
     res.end(err + '');
   });
   rs.on('end', function() {
-    fs.unlink(filepath, function(err) {
+    /*fs.unlink(filepath, function(err) {
       console.log('unlink', filepath, 'error', err);
-    });
+    });*/
   });
   rs.pipe(res);
 }
